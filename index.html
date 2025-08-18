@@ -3,28 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Merge PDF Online (Free · No Upload) — Combine PDFs in Your Browser</title>
-  <meta name="description" content="Free online PDF merger. Drag & drop multiple PDFs, reorder, and merge instantly — 100% client‑side, no upload required. Safe, fast, and private." />
+  <title>Merge PDF (Free · No Upload) | Instant in Your Browser</title>
+  <meta name="description" content="Combine multiple PDF files directly in your browser. Drag & drop → reorder → merge → download. 100% client‑side for speed and privacy." />
   <link rel="canonical" href="https://example.com/en/pdf-merge" />
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
-  <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
-  <meta name="keywords" content="merge pdf, pdf merge, combine pdf, join pdf files, online pdf merger, client-side pdf, free pdf merger" />
-  <meta name="color-scheme" content="light" />
-  <meta name="theme-color" content="#ffffff" />
-
-  <!-- Open Graph / Twitter -->
+  <meta name="robots" content="index,follow" />
+  <meta name="keywords" content="merge pdf, pdf merge, combine pdf, join pdf files, online pdf merger, client-side pdf" />
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:title" content="Merge PDF Online (Free · No Upload)" />
-  <meta property="og:description" content="Drag & drop PDFs, reorder, and merge instantly — without uploading." />
+  <meta property="og:title" content="Merge PDF (Free · No Upload)" />
+  <meta property="og:description" content="Drop multiple PDFs, reorder, and merge instantly — without uploading." />
   <meta property="og:url" content="https://example.com/en/pdf-merge" />
   <meta property="og:image" content="/og.png" />
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Merge PDF Online (Free · No Upload)" />
-  <meta name="twitter:description" content="Free browser‑based PDF merger. No upload, no tracking." />
+  <meta name="twitter:title" content="Merge PDF (Free · No Upload)" />
+  <meta name="twitter:description" content="Combine PDFs in your browser. Drag & drop → reorder → merge → download." />
   <meta name="twitter:image" content="/og.png" />
 
-  <!-- hreflang alternates -->
+  <!-- (Optional) hreflang alternates -->
   <link rel="alternate" hreflang="en" href="https://example.com/en/pdf-merge" />
   <link rel="alternate" hreflang="ko" href="https://example.com/pdf-merge" />
   <link rel="alternate" hreflang="x-default" href="https://example.com/pdf-merge" />
@@ -33,63 +30,62 @@
   <link rel="preconnect" href="https://unpkg.com" crossorigin />
 
   <style>
-    /* LIGHT THEME (no dark mode) */
-    :root{--bg:#f7f9fc;--surface:#ffffff;--ink:#111827;--muted:#4b5563;--line:#e5e7eb;--accent:#2563eb;--accent-2:#059669}
+    :root{--bg:#0b1020;--card:#121831;--ink:#e8ecff;--muted:#9aa4c7;--accent:#5b8cff;--accent-2:#7dffa7}
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Noto Sans,Arial,"Apple Color Emoji","Segoe UI Emoji";color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Noto Sans,Arial,"Apple Color Emoji","Segoe UI Emoji";color:var(--ink);background:linear-gradient(180deg,#0b1020,#0a0e1b 60%);-webkit-font-smoothing:antialiased}
     a{color:var(--accent);text-decoration:none}
     header{max-width:1024px;margin:24px auto 0;padding:16px}
     .title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;letter-spacing:-.02em;margin:0 0 6px}
     .sub{color:var(--muted);margin:0 0 8px}
-    .badge{display:inline-block;background:#e8f0ff;border:1px solid #c6d4ff;color:#1e3a8a;font-weight:600;padding:4px 8px;border-radius:999px;font-size:.82rem;margin-right:8px}
+    .badge{display:inline-block;background:rgba(93,139,255,.15);border:1px solid rgba(93,139,255,.35);color:#cfe1ff;font-weight:600;padding:4px 8px;border-radius:999px;font-size:.82rem;margin-right:8px}
 
     main{max-width:1024px;margin:0 auto;padding:16px}
-    .card{background:var(--surface);border:1px solid var(--line);box-shadow:0 10px 20px rgba(0,0,0,.05);border-radius:18px;padding:16px}
+    .card{background:linear-gradient(180deg,#121831,#0f1428);border:1px solid rgba(255,255,255,.06);box-shadow:0 10px 30px rgba(0,0,0,.35);border-radius:18px;padding:16px}
 
     .grid{display:grid;grid-template-columns:1fr;gap:16px}
     @media(min-width:900px){.grid{grid-template-columns:1.2fr .8fr}}
 
-    .dropzone{position:relative;border:2px dashed #cbd5e1;border-radius:16px;padding:28px;text-align:center;transition:.2s;min-height:160px;background:#f8fafc}
-    .dropzone.dragover{border-color:var(--accent);background:#eef4ff}
+    .dropzone{position:relative;border:2px dashed rgba(255,255,255,.2);border-radius:16px;padding:28px;text-align:center;transition:.2s ease;min-height:160px;background:rgba(255,255,255,.02)}
+    .dropzone.dragover{border-color:var(--accent);background:rgba(91,140,255,.08)}
     .dz-title{font-size:1.1rem;font-weight:700;margin-bottom:6px}
     .dz-sub{color:var(--muted);font-size:.95rem}
     .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;justify-content:center}
-    .btn{appearance:none;border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 14px;border-radius:12px;font-weight:700;letter-spacing:.01em;cursor:pointer}
-    .btn:hover{border-color:#cbd5e1;background:#fafafa}
-    .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+    .btn{appearance:none;border:1px solid rgba(255,255,255,.16);background:linear-gradient(180deg,#1b2448,#121a38);color:var(--ink);padding:10px 14px;border-radius:12px;font-weight:700;letter-spacing:.01em;cursor:pointer}
+    .btn:hover{border-color:rgba(255,255,255,.3)}
+    .btn.primary{background:linear-gradient(180deg,#4169ff,#2c51ff);border-color:rgba(255,255,255,.28)}
     .btn.ghost{background:transparent}
     .btn.sm{padding:7px 10px;font-size:.92rem}
 
-    .filelist{margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
-    .filelist-header{display:flex;gap:10px;align-items:center;justify-content:space-between;background:#f3f4f6;padding:10px 12px}
+    .filelist{margin-top:12px;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden}
+    .filelist-header{display:flex;gap:10px;align-items:center;justify-content:space-between;background:rgba(255,255,255,.04);padding:10px 12px}
     .filelist-body{max-height:360px;overflow:auto}
-    .row{display:grid;grid-template-columns:auto 1fr auto auto auto;gap:10px;align-items:center;padding:10px 12px;border-top:1px solid var(--line);background:#fff}
+    .row{display:grid;grid-template-columns:auto 1fr auto auto auto;gap:10px;align-items:center;padding:10px 12px;border-top:1px solid rgba(255,255,255,.06)}
     .row:first-child{border-top:0}
     .handle{cursor:grab;user-select:none}
     .name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .meta{color:var(--muted);font-size:.9rem}
-    .danger{color:#b91c1c}
+    .danger{color:#ff9eaa}
 
     .opt{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
     .opt label{font-size:.95rem;color:var(--muted)}
-    .opt input[type="text"]{background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px 10px;min-width:220px}
+    .opt input[type="text"]{background:#0d1430;color:var(--ink);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:8px 10px;min-width:220px}
 
-    .progress{height:10px;background:#eef2f7;border-radius:999px;overflow:hidden;margin-top:10px}
-    .bar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+    .progress{height:10px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden;margin-top:10px}
+    .bar{height:100%;width:0%;background:linear-gradient(90deg,#5b8cff,#7dffa7)}
 
-    .section{margin-top:24px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:#fff}
+    .section{margin-top:24px;padding:14px 16px;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:rgba(255,255,255,.02)}
     .section h2{font-size:1.1rem;margin:0 0 6px}
     .section p{color:var(--muted);margin:.3rem 0}
-    .faq details{border-top:1px solid var(--line);padding:10px 0}
+    .faq details{border-top:1px solid rgba(255,255,255,.06);padding:10px 0}
     .faq details:first-child{border-top:0}
     .faq summary{cursor:pointer;font-weight:700}
 
     footer{max-width:1024px;margin:18px auto 40px;padding:0 16px;color:var(--muted);font-size:.92rem}
-    code.inline{background:#f3f4f6;border:1px solid var(--line);padding:.2rem .35rem;border-radius:6px}
+    code.inline{background:#0d1430;border:1px solid rgba(255,255,255,.12);padding:.2rem .35rem;border-radius:6px}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .ok{color:#059669}
-    .fail{color:#b91c1c}
+    .ok{color:#7dffa7}
+    .fail{color:#ff9eaa}
   </style>
 
   <!-- pdf-lib (UMD) - defer ensures it loads before our init (also deferred) -->
@@ -119,8 +115,7 @@
     const state = {
       files: /** @type {{id:string, file:File, bytes:ArrayBuffer|null, pages:number|null}[]} */([]),
       draggingId: null,
-      wired: false,
-      passwords: /** @type {Record<string,string>} */({}) // filename -> password
+      wired: false
     };
 
     function humanSize(bytes){
@@ -135,71 +130,10 @@
 
     function setProgress(bar, p){ if(bar) bar.style.width = Math.max(0,Math.min(100,p)) + '%'; }
 
-    async function waitForPDFLib(maxMs=1500){
-      const start = performance.now();
-      while(!window.PDFLib && performance.now()-start < maxMs){
-        await new Promise(r=>setTimeout(r,50));
-      }
-      if(!window.PDFLib) throw new Error('PDFLib failed to load');
-    }
-
-    // Wrapper to load PDFs; enables best-effort for encrypted docs
+    // --- NEW: single wrapper to ensure encrypted PDFs are loadable ---
     async function loadPdf(ab){
       await waitForPDFLib();
       return PDFLib.PDFDocument.load(ab, { ignoreEncryption: true });
-    }
-
-    // --- Password flow using PDF.js fallback ---
-    async function ensurePdfjs(){
-      if(window.pdfjsLib) return window.pdfjsLib;
-      await new Promise((resolve, reject)=>{
-        const s = document.createElement('script');
-        s.src = 'https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js';
-        s.onload = resolve; s.onerror = ()=>reject(new Error('Failed to load pdfjs'));
-        document.head.appendChild(s);
-      });
-      try{ window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js'; }catch{}
-      return window.pdfjsLib;
-    }
-    function defaultPasswordPrompt(filename, reason){
-      const msg = reason === 'INCORRECT_PASSWORD' ? `Incorrect password for "${filename}". Try again:` : `Password required for "${filename}":`;
-      const pw = window.prompt(msg, '');
-      return pw==null? null : String(pw);
-    }
-    async function rasterizeWithPDFJS(ab, filename, getPassword = defaultPasswordPrompt){
-      const pdfjs = await ensurePdfjs();
-      let password = state.passwords[filename] || null;
-      for(let attempts=0; attempts<5; attempts++){
-        try{
-          const task = pdfjs.getDocument({ data: ab, password });
-          const doc = await task.promise;
-          const pages = [];
-          for(let i=1;i<=doc.numPages;i++){
-            const page = await doc.getPage(i);
-            const viewport = page.getViewport({ scale: 1.5 });
-            const canvas = (typeof OffscreenCanvas!=='undefined')? new OffscreenCanvas(viewport.width, viewport.height) : Object.assign(document.createElement('canvas'), { width: viewport.width, height: viewport.height });
-            const ctx = 'getContext' in canvas ? canvas.getContext('2d') : canvas.getContext?.('2d');
-            await page.render({ canvasContext: ctx, viewport }).promise;
-            const blob = await (canvas.convertToBlob ? canvas.convertToBlob({ type: 'image/png' }) : new Promise(res=>canvas.toBlob(res, 'image/png')));
-            const buf = await blob.arrayBuffer();
-            pages.push({ width: viewport.width, height: viewport.height, png: new Uint8Array(buf) });
-          }
-          if(password) state.passwords[filename] = password;
-          return pages;
-        }catch(e){
-          const name = e?.name || ''; const code = e?.code || '';
-          const needPw = /Password/i.test(name) || /NEED_PASSWORD|INCORRECT_PASSWORD/.test(String(code)) || /password/i.test(e?.message||'');
-          if(needPw){
-            const reason = String(code)==='2' || String(code).includes('INCORRECT_PASSWORD') ? 'INCORRECT_PASSWORD' : 'NEED_PASSWORD';
-            const next = getPassword(filename, reason);
-            password = next && typeof next.then==='function' ? await next : next;
-            if(password==null) throw new Error('User cancelled password entry');
-            continue;
-          }
-          throw e;
-        }
-      }
-      throw new Error('Too many incorrect password attempts');
     }
 
     function renderList(listBody){
@@ -223,25 +157,25 @@
       });
     }
 
+    async function waitForPDFLib(maxMs=1500){
+      const start = performance.now();
+      while(!window.PDFLib && performance.now()-start < maxMs){
+        await new Promise(r=>setTimeout(r,50));
+      }
+      if(!window.PDFLib) throw new Error('PDFLib failed to load');
+    }
+
     async function readPagesFor(item, listBody){
       if(item.pages != null) return;
       try{
         const ab = item.bytes || await item.file.arrayBuffer();
         item.bytes = ab;
-        const doc = await loadPdf(ab);
+        const doc = await loadPdf(ab); // <-- ignoreEncryption:true
         item.pages = doc.getPageCount();
-        if(!item.pages || item.pages<1){ throw new Error('EmptyPageCount'); }
         renderList(listBody);
       }catch(e){
-        try{
-          const pages = await rasterizeWithPDFJS(item.bytes||await item.file.arrayBuffer(), item.file.name);
-          item.pages = pages.length;
-          renderList(listBody);
-        }catch(err){
-          item.pages = 0;
-          console.warn('Failed to parse page count (even via PDF.js)', err);
-          renderList(listBody);
-        }
+        item.pages = 0;
+        console.warn('Failed to parse page count', e);
       }
     }
 
@@ -252,6 +186,7 @@
         const id = uuid();
         const item = {id, file:f, bytes:null, pages:null};
         state.files.push(item);
+        // pre-read pages (non-blocking)
         readPagesFor(item, listBody);
       });
       renderList(listBody);
@@ -263,39 +198,26 @@
       try{
         await waitForPDFLib();
         const out = await PDFLib.PDFDocument.create();
+        // Copy metadata from first file when available
         try{
           const first = state.files[0];
           const ab = first.bytes || await first.file.arrayBuffer();
           first.bytes = ab;
-          const firstDoc = await loadPdf(ab);
+          const firstDoc = await loadPdf(ab); // <-- ignoreEncryption:true
           const title = firstDoc.getTitle?.();
           if(title) out.setTitle(title);
-        }catch{}
+        }catch{/* ignore */}
 
         let copied = 0, total = state.files.reduce((s,f)=>s+(f.pages||0),0) || state.files.length;
         for(const item of state.files){
           const ab = item.bytes || await item.file.arrayBuffer();
           item.bytes = ab;
-          let pagesAdded = 0;
-          try{
-            const src = await loadPdf(ab);
-            const pages = await out.copyPages(src, src.getPageIndices());
-            pages.forEach(p=>out.addPage(p));
-            pagesAdded = pages.length;
-          }catch(err){
-            try{
-              const imgs = await rasterizeWithPDFJS(ab, item.file.name);
-              for(const im of imgs){
-                const png = await out.embedPng(im.png);
-                const page = out.addPage([im.width, im.height]);
-                page.drawImage(png, { x:0, y:0, width: im.width, height: im.height });
-                pagesAdded++;
-              }
-            }catch(e){ console.warn('Skipping file due to password/corruption error:', item.file.name, e); }
-          }
-          copied += pagesAdded;
+          const src = await loadPdf(ab); // <-- ignoreEncryption:true
+          const pages = await out.copyPages(src, src.getPageIndices());
+          pages.forEach(p=>out.addPage(p));
+          copied += pages.length;
           setProgress(progressBar, Math.round((copied/Math.max(total,1))*100));
-          await new Promise(r=>setTimeout(r));
+          await new Promise(r=>setTimeout(r)); // yield to UI
         }
         const bytes = await out.save({ addDefaultPage:false, updateFieldAppearances:true });
         const blob = new Blob([bytes], {type:'application/pdf'});
@@ -308,7 +230,7 @@
         setProgress(progressBar, 100);
       }catch(err){
         console.error(err);
-        alert('An error occurred while merging. If a PDF is password‑protected, you will be prompted for its password.');
+        alert('An error occurred while merging. If a PDF is password‑protected and cannot be loaded even with encryption ignored, it may need to be unlocked first.');
       }
     }
 
@@ -324,6 +246,7 @@
       const progressBar = qs(SELECTORS.progressBar);
       const outName = byId(SELECTORS.outName);
 
+      // Guard: show friendly error panel if any critical hook is missing
       const missing = [
         ['#dropzone', dropzone], ['#file-input', fileInput],
         ['.filelist-body', listBody], ['#merge-btn', mergeBtn],
@@ -334,15 +257,23 @@
         console.error('Missing required elements:', missing.join(', '));
         const warn = document.createElement('div');
         warn.className = 'section card';
-        warn.innerHTML = `<strong>Initialization failed.</strong> Missing: ${missing.join(', ')}.`;
-        document.body.prepend(warn); return;
+        warn.innerHTML = `<strong>Initialization failed.</strong> Missing: ${missing.join(', ')}. Please ensure the markup contains these elements.`;
+        document.body.prepend(warn);
+        return;
       }
 
+      // Drag & drop events
       dropzone.addEventListener('dragover', (e)=>{ e.preventDefault(); dropzone.classList.add('dragover'); });
       dropzone.addEventListener('dragleave', ()=>dropzone.classList.remove('dragover'));
-      dropzone.addEventListener('drop', (e)=>{ e.preventDefault(); dropzone.classList.remove('dragover'); if(e.dataTransfer?.files) handleFiles(e.dataTransfer.files, listBody); });
+      dropzone.addEventListener('drop', (e)=>{
+        e.preventDefault(); dropzone.classList.remove('dragover');
+        if(e.dataTransfer?.files) handleFiles(e.dataTransfer.files, listBody);
+      });
+
+      // File input
       fileInput.addEventListener('change', (e)=>{ handleFiles(e.target.files, listBody); });
 
+      // Delegated clicks in list
       listBody.addEventListener('click', (e)=>{
         const btn = e.target.closest('button'); if(!btn) return;
         const row = btn.closest('.row'); const id = row?.dataset.id; if(!id) return;
@@ -352,15 +283,32 @@
         if(btn.classList.contains('down') && idx<state.files.length-1){ const t = state.files[idx]; state.files[idx]=state.files[idx+1]; state.files[idx+1]=t; renderList(listBody); return; }
       });
 
-      listBody.addEventListener('dragstart', (e)=>{ const row = e.target.closest('row, .row'); if(!row) return; state.draggingId = row.dataset.id; e.dataTransfer.effectAllowed='move'; });
-      listBody.addEventListener('dragover', (e)=>{ e.preventDefault(); const overRow = e.target.closest('row, .row'); if(!overRow) return; const overId = overRow.dataset.id; if(!overId || overId===state.draggingId) return; const from = state.files.findIndex(x=>x.id===state.draggingId); const to = state.files.findIndex(x=>x.id===overId); if(from<0||to<0) return; const [moved] = state.files.splice(from,1); state.files.splice(to + (from<to?1:0), 0, moved); renderList(listBody); });
+      // Drag reordering
+      listBody.addEventListener('dragstart', (e)=>{
+        const row = e.target.closest('row, .row'); if(!row) return; state.draggingId = row.dataset.id; e.dataTransfer.effectAllowed='move';
+      });
+      listBody.addEventListener('dragover', (e)=>{
+        e.preventDefault();
+        const overRow = e.target.closest('row, .row'); if(!overRow) return;
+        const overId = overRow.dataset.id; if(!overId || overId===state.draggingId) return;
+        const from = state.files.findIndex(x=>x.id===state.draggingId);
+        const to = state.files.findIndex(x=>x.id===overId);
+        if(from<0||to<0) return;
+        const [moved] = state.files.splice(from,1);
+        state.files.splice(to + (from<to?1:0), 0, moved);
+        renderList(listBody);
+      });
       listBody.addEventListener('dragend', ()=>{state.draggingId=null});
 
+      // Utility buttons
       clearBtn.addEventListener('click', ()=>{ state.files=[]; renderList(listBody); setProgress(progressBar, 0); });
       sortAZBtn.addEventListener('click', ()=>{ state.files.sort((a,b)=>a.file.name.localeCompare(b.file.name)); renderList(listBody); });
       sortZABtn.addEventListener('click', ()=>{ state.files.sort((a,b)=>b.file.name.localeCompare(a.file.name)); renderList(listBody); });
+
+      // Merge action
       mergeBtn.addEventListener('click', ()=>{ performMerge(progressBar, outName); });
 
+      // Accessibility: paste PDFs with keyboard (Ctrl+V)
       window.addEventListener('paste', (e)=>{
         const items = e.clipboardData?.items; if(!items) return;
         const files = Array.from(items).map(it=>it.getAsFile()).filter(Boolean);
@@ -370,42 +318,86 @@
       state.wired = true;
     }
 
-    function onReady(){ try{ wire(); }catch(e){ console.error('Init error', e); } }
-    if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', onReady, {once:true}); } else { onReady(); }
-
-    // --- Self-test harness (existing + SEO/light-mode checks) ---
-    function addResult(msg, ok=true){ const ul = document.querySelector(SELECTORS.testsOut); if(!ul) return; const li = document.createElement('li'); li.className = ok? 'ok' : 'fail'; li.textContent = (ok? '✔ ' : '✖ ') + msg; ul.appendChild(li); }
-
-    async function runTests(){
-      const dropzone = byId(SELECTORS.dropzone); const fileInput = byId(SELECTORS.fileInput); const listBody = qs(SELECTORS.listBody); const mergeBtn = byId(SELECTORS.mergeBtn); const clearBtn = byId(SELECTORS.clearBtn); const sortAZBtn = byId(SELECTORS.sortAZBtn); const sortZABtn = byId(SELECTORS.sortZABtn); const progressBar = qs(SELECTORS.progressBar); const outName = byId(SELECTORS.outName);
-      addResult('dropzone exists', !!dropzone); addResult('file input exists', !!fileInput); addResult('list body exists', !!listBody); addResult('merge button exists', !!mergeBtn); addResult('clear button exists', !!clearBtn); addResult('sort A→Z exists', !!sortAZBtn); addResult('sort Z→A exists', !!sortZABtn); addResult('progress bar exists', !!progressBar); addResult('output name input exists', !!outName);
-      addResult('humanSize(1536) == 1.5 KB', humanSize(1536) === '1.5 KB'); const id = uuid(); addResult('uuid() returns a non-empty string', typeof id === 'string' && id.length>0);
-
-      try{ await waitForPDFLib(); const origLoad = PDFLib.PDFDocument.load; let seenOpts = null; PDFLib.PDFDocument.load = async (_ab, opts)=>{ seenOpts = opts; return { getPageCount:()=>1, getPageIndices:()=>[0] }; }; const dummy = new Uint8Array([0]).buffer; await loadPdf(dummy); addResult('PDFDocument.load called with ignoreEncryption:true', seenOpts && seenOpts.ignoreEncryption === true); const item = { id:'t', file:new File([new Uint8Array([0])], 't.pdf', {type:'application/pdf'}), bytes: dummy, pages:null }; await readPagesFor(item, listBody); addResult('readPagesFor executed without throwing (stub)', true); PDFLib.PDFDocument.load = origLoad; }catch(e){ addResult('encryption handling test failed', false); }
-
-      // Password fallback pipeline
-      try{ const originalPrompt = window.prompt; window.prompt = ()=> 'secret123'; const origPdfjs = window.pdfjsLib; window.pdfjsLib = { getDocument: ({data, password})=>({ promise: new Promise((resolve, reject)=>{ if(!password){ const err = new Error('Password required'); err.name='PasswordException'; err.code='NEED_PASSWORD'; reject(err);} else if(password!=='secret123'){ const err = new Error('Incorrect password'); err.name='PasswordException'; err.code='INCORRECT_PASSWORD'; reject(err);} else { resolve({ numPages: 1, getPage: async ()=>({ getViewport: ({scale})=>({width:100*scale, height:100*scale}), render: ()=>({ promise: Promise.resolve() }) }) }); } }) }) , GlobalWorkerOptions: { workerSrc: '' } }; const imgs = await rasterizeWithPDFJS(new Uint8Array([0]).buffer, 'pw.pdf'); addResult('password fallback produced at least one page image', Array.isArray(imgs) && imgs.length===1); window.prompt = originalPrompt; window.pdfjsLib = origPdfjs; }catch(e){ addResult('password fallback test failed', false); }
-
-      // NEW SEO/light-mode tests
-      const colorSchemeMeta = document.querySelector('meta[name="color-scheme"]'); addResult('color-scheme meta set to light', colorSchemeMeta?.content==='light');
-      const robotsMeta = document.querySelector('meta[name="robots"]'); addResult('robots meta has max-* directives', /max-image-preview|max-snippet/.test(robotsMeta?.content||''));
-      const hasCanonical = !!document.querySelector('link[rel="canonical"]'); addResult('canonical link present', hasCanonical);
-      const ldTypes = Array.from(document.querySelectorAll('script[type="application/ld+json"]')).map(s=>{try{return JSON.parse(s.textContent).@type}catch{return null}}); // will be undefined for most; we test below
-      addResult('structured data scripts present', document.querySelectorAll('script[type="application/ld+json"]').length>=3);
+    // DOM ready & idempotent init
+    function onReady(){
+      try{ wire(); }catch(e){ console.error('Init error', e); }
+    }
+    if(document.readyState === 'loading'){
+      document.addEventListener('DOMContentLoaded', onReady, {once:true});
+    }else{
+      onReady();
     }
 
-    window.addEventListener('DOMContentLoaded', ()=>{ const btn = byId(SELECTORS.testsBtn); btn?.addEventListener('click', ()=>{ runTests(); }); });
+    // --- Self-test harness (no external deps) ---
+    function addResult(msg, ok=true){
+      const ul = document.querySelector(SELECTORS.testsOut); if(!ul) return;
+      const li = document.createElement('li'); li.className = ok? 'ok' : 'fail'; li.textContent = (ok? '✔ ' : '✖ ') + msg; ul.appendChild(li);
+    }
 
-    window.__pdfMergeTestHooks = { loadPdf, rasterizeWithPDFJS, ensurePdfjs, performMerge, state };
+    async function runTests(){
+      const dropzone = byId(SELECTORS.dropzone);
+      const fileInput = byId(SELECTORS.fileInput);
+      const listBody = qs(SELECTORS.listBody);
+      const mergeBtn = byId(SELECTORS.mergeBtn);
+      const clearBtn = byId(SELECTORS.clearBtn);
+      const sortAZBtn = byId(SELECTORS.sortAZBtn);
+      const sortZABtn = byId(SELECTORS.sortZABtn);
+      const progressBar = qs(SELECTORS.progressBar);
+      const outName = byId(SELECTORS.outName);
+
+      addResult('dropzone exists', !!dropzone);
+      addResult('file input exists', !!fileInput);
+      addResult('list body exists', !!listBody);
+      addResult('merge button exists', !!mergeBtn);
+      addResult('clear button exists', !!clearBtn);
+      addResult('sort A→Z exists', !!sortAZBtn);
+      addResult('sort Z→A exists', !!sortZABtn);
+      addResult('progress bar exists', !!progressBar);
+      addResult('output name input exists', !!outName);
+
+      // Helper function tests
+      addResult('humanSize(1536) == 1.5 KB', humanSize(1536) === '1.5 KB');
+      const id = uuid(); addResult('uuid() returns a non-empty string', typeof id === 'string' && id.length>0);
+
+      // NEW: verify that loading uses ignoreEncryption:true via wrapper
+      try{
+        await waitForPDFLib();
+        const origLoad = PDFLib.PDFDocument.load;
+        let seenOpts = null;
+        PDFLib.PDFDocument.load = async (_ab, opts)=>{ seenOpts = opts; return { getPageCount:()=>1, getPageIndices:()=>[0] }; };
+        const dummy = new Uint8Array([0]).buffer;
+        await loadPdf(dummy);
+        addResult('PDFDocument.load called with ignoreEncryption:true', seenOpts && seenOpts.ignoreEncryption === true);
+        // Also ensure readPagesFor calls into the same wrapper
+        const item = { id:'t', file:new File([new Uint8Array([0])], 't.pdf', {type:'application/pdf'}), bytes: dummy, pages:null };
+        await readPagesFor(item, listBody);
+        addResult('readPagesFor executed without throwing (stub)', true);
+        PDFLib.PDFDocument.load = origLoad; // restore
+      }catch(e){ addResult('encryption handling test failed', false); }
+
+      // Event wiring sanity
+      try{ mergeBtn?.dispatchEvent(new Event('test')); addResult('event dispatch ok (merge button)'); }catch(e){ addResult('event dispatch failed (merge button)', false); }
+
+      // Ensure PDFLib presence (should be present due to defer)
+      addResult('PDFLib available', !!window.PDFLib);
+    }
+
+    window.addEventListener('DOMContentLoaded', ()=>{
+      const btn = byId(SELECTORS.testsBtn);
+      btn?.addEventListener('click', ()=>{ runTests(); });
+    });
+
+    // Expose minimal hooks for advanced testing/debugging
+    window.__pdfMergeTestHooks = { loadPdf, performMerge, state };
   })();
   </script>
 
-  <!-- Structured Data: WebPage + HowTo + FAQ + Breadcrumbs + SoftwareApplication for SEO -->
+  <!-- Structured Data: WebPage + HowTo + FAQ for SEO -->
   <script type="application/ld+json" id="ld-webpage">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Merge PDF Online (Free · No Upload)",
+    "name": "Merge PDF (Free · No Upload)",
     "inLanguage": "en-US",
     "url": "https://example.com/en/pdf-merge",
     "description": "Merge multiple PDFs instantly in your browser — no server upload.",
@@ -432,40 +424,31 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type": "Question","name": "Are my files uploaded?","acceptedAnswer": {"@type":"Answer","text":"No. All processing happens locally in your browser (client-side)."}},
-      {"@type": "Question","name": "Can it handle large files?","acceptedAnswer": {"@type":"Answer","text":"Hundreds of MBs may work, but practical limits depend on your device memory."}},
-      {"@type": "Question","name": "Does quality change?","acceptedAnswer": {"@type":"Answer","text":"pdf-lib copies existing page objects, so merging does not re‑render or downscale content. When passwords are used, pages are rasterized to images to proceed securely, which can increase file size."}}
+      {
+        "@type": "Question",
+        "name": "Are my files uploaded?",
+        "acceptedAnswer": {"@type":"Answer","text":"No. All processing happens locally in your browser (client-side)."}
+      },
+      {
+        "@type": "Question",
+        "name": "Can it handle large files?",
+        "acceptedAnswer": {"@type":"Answer","text":"Hundreds of MBs may work, but practical limits depend on your device memory."}
+      },
+      {
+        "@type": "Question",
+        "name": "Does quality change?",
+        "acceptedAnswer": {"@type":"Answer","text":"pdf-lib copies existing page objects, so merging does not re‑render or downscale content."}
+      }
     ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"BreadcrumbList",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://example.com/"},
-      {"@type":"ListItem","position":2,"name":"Merge PDF","item":"https://example.com/en/pdf-merge"}
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"SoftwareApplication",
-    "name":"Merge PDF Online (Free · No Upload)",
-    "operatingSystem":"Web",
-    "applicationCategory":"UtilitiesApplication",
-    "url":"https://example.com/en/pdf-merge",
-    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
   }
   </script>
 </head>
 <body>
   <header>
     <div class="badge">Free · Client‑side · No data stored</div>
-    <h1 class="title">Free Online PDF Merger — <span style="color:var(--accent-2)">No Upload</span>, Instant in Your Browser</h1>
+    <h1 class="title">Merge PDFs — <span style="color:var(--accent-2)">Instantly</span> in Your Browser</h1>
     <p class="sub">Combine multiple PDFs without uploading. Reorder pages, then merge & download in one click.</p>
-    <noscript><p class="section" style="color:#b91c1c">This tool requires JavaScript to run. Please enable JavaScript.</p></noscript>
+    <noscript><p class="section" style="color:#ff9eaa">This tool requires JavaScript to run. Please enable JavaScript.</p></noscript>
   </header>
 
   <main class="grid">
@@ -491,7 +474,7 @@
           <label for="out-name">Output filename</label>
           <input id="out-name" type="text" placeholder="merged" />
           <button class="btn primary" id="merge-btn" type="button">Merge & Download</button>
-          <span>If the file has a password, it will not be merged.</span>
+          <span>If the file has a password, it will not be merged. Please check the file.</span>
         </div>
         <div class="progress" aria-hidden="true"><div class="bar"></div></div>
       </div>
@@ -514,7 +497,7 @@
       <!-- Self-test block -->
       <div class="section" aria-live="polite">
         <h2>Self‑test</h2>
-        <p class="meta">Click to verify wiring, security fallback, and SEO checks (no files required).</p>
+        <p class="meta">Click to verify wiring and helper utilities (no files required).</p>
         <button id="run-tests" class="btn sm">Run tests</button>
         <ul id="test-output"></ul>
       </div>
@@ -527,6 +510,7 @@
   </footer>
 
   <script>
+    // Passive footer updates (safe even if executed early)
     document.getElementById('year')?.textContent = new Date().getFullYear();
     document.getElementById('updated')?.textContent = new Date().toISOString().slice(0,10);
   </script>
